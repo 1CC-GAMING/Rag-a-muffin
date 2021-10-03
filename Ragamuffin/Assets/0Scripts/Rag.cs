@@ -18,18 +18,18 @@ public class Rag : MonoBehaviour
     public float jumpForce;       // current is 300f
     public float bounceJumpForce; // current is 250f
     public float attackRange;
-    public GameObject moveableObject;
+    //public GameObject moveableObject;
     [SerializeField]
     private GameObject changeLevel;
-    public GameObject pinHandle;
-    public GameObject Cat;
-    public GameObject dummyPin;
-    public GameObject dropPoint;
+    //public GameObject pinHandle;
+    //public GameObject Cat;
+    //public GameObject dummyPin;
+    //public GameObject dropPoint;
     public string levelToLoad;
     private string level;
     private Rigidbody rb;
     public Transform childRag;
-    public Transform catLocation;
+    //public Transform catLocation;
     public Vector3 startPosition;
     private Scene scene;
     public bool amIHanging = false;
@@ -41,9 +41,9 @@ public class Rag : MonoBehaviour
 
 
     private float attackDelay;
-    public Animator anim;
-    private string currentState;
-    private string PlayerIdle = "Idle";
+    //public Animator anim;
+    //private string currentState;
+    //private string PlayerIdle = "Idle";
     //private string PlayerRun = "Take 001";
     //private string PlayerJump;
     //private string PlayerAttack = "";
@@ -51,12 +51,12 @@ public class Rag : MonoBehaviour
     //private string PlayerFall;
     //private string PlayerPull = "Pull";
     //private string PlayerPush = "Push";
-    private string PlayerClimb = "Climb";
+    //private string PlayerClimb = "Climb";
     //private string PlayerLedgeClimb = "LedgeClimb";
     //private string PlayerGotHit = "GotHit";
-    private string PlayerGrapple = "Grapple";
-    private string PlayerGrappleThrow = "GrappleThrow";
-    private string PlayerGrappleCancel = "GrappleCancel";
+    //private string PlayerGrapple = "Grapple";
+    //private string PlayerGrappleThrow = "GrappleThrow";
+    //private string PlayerGrappleCancel = "GrappleCancel";
     private bool isAttackPressed;
     private bool isAttacking;
     public bool isGrounded;
@@ -77,7 +77,7 @@ public class Rag : MonoBehaviour
         PlayerPrefs.SetString("lastlevel", level);
         rb = gameObject.GetComponent<Rigidbody>();
         startPosition = transform.position;
-        pinHandle.SetActive(false);
+        //pinHandle.SetActive(false);
     }
 
     /// <summary>
@@ -86,6 +86,7 @@ public class Rag : MonoBehaviour
     /// </summary>
     void Update()
     {
+        Jumping();
         //Checking for inputs
         //space jump key pressed?
         if (Input.GetKeyDown(KeyCode.Space))
@@ -99,31 +100,31 @@ public class Rag : MonoBehaviour
         //    isAttackPressed = true;
         //}
 
-        if (Input.GetKeyDown(KeyCode.R) && isEquip)
-        {
-            pinHandle.SetActive(false);
-            dummyPin.transform.position = dropPoint.transform.position;
-            dummyPin.SetActive(true);
-            isEquip = false;
-        }
+        //if (Input.GetKeyDown(KeyCode.R) && isEquip)
+        //{
+        //    pinHandle.SetActive(false);
+        //    dummyPin.transform.position = dropPoint.transform.position;
+        //    dummyPin.SetActive(true);
+        //    isEquip = false;
+        //}
         if (Input.GetKeyDown(KeyCode.D) && !isHiding)
         {
-            childRag.localRotation = Quaternion.Euler(0, 50, 0);
+            childRag.localRotation = Quaternion.Euler(0, 275, 0);
         }
         if (Input.GetKeyDown(KeyCode.A) && !isHiding)
         {
-            childRag.localRotation = Quaternion.Euler(0, 180, 0);
+            childRag.localRotation = Quaternion.Euler(0, 80, 0);
         }
         //childRag.localRotation = Quaternion.Euler(0, 50, 0);
         //childRag.localRotation = Quaternion.Euler(0, 180, 0);
 
-        if (isEquip == true && Vector3.Distance(transform.position, catLocation.position) <= attackRange)
-        {
-            Cat.SendMessage("Spook");
-            Cat.SendMessage("reduceAgitation", 35);
-            pinHandle.SetActive(false);
-            isEquip = false;
-        }
+        //if (isEquip == true && Vector3.Distance(transform.position, catLocation.position) <= attackRange)
+        //{
+        //    Cat.SendMessage("Spook");
+        //    Cat.SendMessage("reduceAgitation", 35);
+        //    //pinHandle.SetActive(false);
+        //    isEquip = false;
+        //}
         if (Input.GetKeyDown(KeyCode.R))
         {
             if (canPush)
@@ -142,15 +143,15 @@ public class Rag : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D) && !isHiding)
             {
-                transform.Translate(Vector3.back * forwardSpeed * Time.deltaTime);
+                transform.Translate(Vector3.right * forwardSpeed * Time.deltaTime);
             }
 
             if (Input.GetKey(KeyCode.A) && !isHiding)
             {
-                transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
+                transform.Translate(Vector3.left * forwardSpeed * Time.deltaTime);
             }
         }
-        Jumping();
+        
         if (isGrounded && !isAttacking)
         {
             if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
@@ -159,7 +160,7 @@ public class Rag : MonoBehaviour
             }
             else if (!isClimbing && !isGrappling)
             {
-                ChangeAnimationState(PlayerIdle);
+                //ChangeAnimationState(PlayerIdle);
             }
         }
         //------------------------------------------ collision.collider.gameObject.layer
@@ -182,25 +183,25 @@ public class Rag : MonoBehaviour
                 {
                     //ChangeAnimationState(PlayerAttack);
                 }
-                attackDelay = anim.GetCurrentAnimatorStateInfo(0).length;
+                //attackDelay = anim.GetCurrentAnimatorStateInfo(0).length;
                 Invoke("AttackComplete", attackDelay);
             }
         }
     }
     public void GrappleAnim1()
     {
-        ChangeAnimationState(PlayerGrappleThrow);
-        attackDelay = anim.GetCurrentAnimatorStateInfo(0).length;
+        //ChangeAnimationState(PlayerGrappleThrow);
+       // attackDelay = anim.GetCurrentAnimatorStateInfo(0).length;
         Invoke("GrappleAnim2", attackDelay);
     }
     public void GrappleAnim2()
     {
-        ChangeAnimationState(PlayerGrapple);
+        //ChangeAnimationState(PlayerGrapple);
     }
     public void GrappleLetGo()
     {
-        ChangeAnimationState(PlayerGrappleCancel);
-        attackDelay = anim.GetCurrentAnimatorStateInfo(0).length;
+        //ChangeAnimationState(PlayerGrappleCancel);
+        //attackDelay = anim.GetCurrentAnimatorStateInfo(0).length;
         Invoke("GrappleFalse", attackDelay);
     }
     public void GrappleFalse()
@@ -218,13 +219,15 @@ public class Rag : MonoBehaviour
         {
             if (isGrounded && Input.GetKeyDown(KeyCode.Space))
             {
+                rb.AddForce(0, jumpForce, 0);
+                isGrounded = false;
                 if (canPush)
                 {
                     child.transform.parent = null;
                     canPush = !canPush;
                 }
-                rb.AddForce(0, jumpForce, 0);
-                isGrounded = false;
+                Debug.Log("hwiefh");
+               
             }
         }
     }
@@ -239,10 +242,10 @@ public class Rag : MonoBehaviour
     //=====================================================
     void ChangeAnimationState(string newAnimation)
     {
-        if (currentState == newAnimation) return;
+        //if (currentState == newAnimation) return;
 
-        anim.Play(newAnimation);
-        currentState = newAnimation;
+        //anim.Play(newAnimation);
+        //currentState = newAnimation;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -329,7 +332,7 @@ public class Rag : MonoBehaviour
         if (other.gameObject.tag == ("Scarf"))
         {
             isClimbing = true;
-            ChangeAnimationState(PlayerClimb);
+            //ChangeAnimationState(PlayerClimb);
             rb.velocity = new Vector3(0, 0, 0);
             if (Input.GetKey(KeyCode.E))
             {
@@ -337,17 +340,17 @@ public class Rag : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == ("Pin"))
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                dummyPin = other.gameObject;
-                isEquip = true;
-                pinHandle.SetActive(true);
-                dummyPin.SetActive(false);
-                Debug.Log("Pin equipped");
-            }
-        }
+        //if (other.gameObject.tag == ("Pin"))
+        //{
+        //    if (Input.GetKeyDown(KeyCode.E))
+        //    {
+        //        dummyPin = other.gameObject;
+        //        isEquip = true;
+        //        pinHandle.SetActive(true);
+        //        dummyPin.SetActive(false);
+        //        Debug.Log("Pin equipped");
+        //    }
+        //}
 
         if (Input.GetKeyDown(KeyCode.W) && amIHanging == true)
         {

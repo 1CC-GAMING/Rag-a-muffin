@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/0Scenes/MiniHallway.unity
+    guid: 2090363ae2101b341a2421805eda54cf
+  - enabled: 1
+    path: Assets/0Scenes/Kitchen.unity
+    guid: 8b7c644c7e23b9347a6dab270dd910f9
+  - enabled: 1
+    path: Assets/0Scenes/SiblingRoom.unity
+    guid: 2603e1e102c8ec24c87b3d8c5b0af41c
   m_configObjects: {}

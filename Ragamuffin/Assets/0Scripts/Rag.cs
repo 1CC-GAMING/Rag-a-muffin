@@ -64,6 +64,7 @@ public class Rag : MonoBehaviour
     private bool isClimbing;
     public bool isGrappling;
     public bool canPush = false;
+    private Vector3 currentPos;
     // public GameObject[] test;
     /// <summary>
     /// Author: cody
@@ -92,6 +93,13 @@ public class Rag : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             isJumpPressed = true;
+        }
+
+        currentPos = this.transform.position;
+
+        if (this.transform.position.z != 0)
+        {
+            this.transform.position = new Vector3(currentPos.x, currentPos.y, 0);
         }
 
         //space Atatck key pressed?
@@ -363,6 +371,11 @@ public class Rag : MonoBehaviour
                 disableMovement = false;
             }
         }
+    }   
+        public void InvertControls()
+    { 
+        transform.rotation *= Quaternion.AngleAxis(180, transform.up);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, startPosition.z);
     }
 
     private void OnTriggerExit(Collider other)

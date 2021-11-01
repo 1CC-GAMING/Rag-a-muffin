@@ -6,7 +6,7 @@ public class Roomba : MonoBehaviour
 {
     public Transform[] navPoints; // array of nav points
     public int speed;
-    private GameObject playerHolder = null;
+    public GameObject playerHolder = null;
 
     private int navPointIndex; // which nav point in the array it is currently seeking
     public float distanceToPoint; // distance to nav point
@@ -45,7 +45,7 @@ public class Roomba : MonoBehaviour
         transform.LookAt(navPoints[navPointIndex].position);
         if(playerHolder != null)
         {
-            playerHolder.SendMessage("InverseControls");
+            playerHolder.SendMessage("InvertControls");
         }
     }
     private void OnTriggerEnter(Collider other)

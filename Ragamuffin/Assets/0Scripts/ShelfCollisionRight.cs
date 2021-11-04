@@ -13,7 +13,7 @@ using UnityEngine;
 /// </summary>
 public class ShelfCollisionRight : MonoBehaviour
 {
-	private Animator shelfAnim; /// Animator for the shelf
+	public Animator shelfAnim; /// Animator for the shelf
 
 	/// <summary>
 	/// Author: kristyn

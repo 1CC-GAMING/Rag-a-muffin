@@ -13,7 +13,7 @@ using UnityEngine;
 /// </summary>
 public class ShelfCollisionLeft : MonoBehaviour
 {
-	private Animator shelfAnim; /// Animator for the shelf
+	public Animator shelfAnim; /// Animator for the shelf
 
 	/// <summary>
 	/// Author: kristyn
@@ -32,7 +32,7 @@ public class ShelfCollisionLeft : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
-			Debug.Log("Shelf Ready");
+			Debug.Log("Shelf Ready Left");
 			shelfAnim.SetBool("isReadyLeft", true);
 		}
 	}

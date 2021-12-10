@@ -2143,7 +2143,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076877780}
-  - component: {fileID: 1076877781}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2177,23 +2176,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1076877781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076877779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea96e10eec423c3429ab043c9d1a663c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  warningWindow: {fileID: 888105223}
-  text: {fileID: 398311671}
-  yesButton: {fileID: 2028298218}
-  noButton: {fileID: 1918918492}
-  savedSceneIndex: 0
 --- !u!1 &1202180325
 GameObject:
   m_ObjectHideFlags: 0

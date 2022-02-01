@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Ground
   - CheckPoint
+  - Scarf
+  - Fire
+  - JumpPad
+  - Water
+  - Pushable
+  - KinematicTag
   layers:
   - Default
   - TransparentFX
@@ -13,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - postprocessing
   - 
   - 
   - 

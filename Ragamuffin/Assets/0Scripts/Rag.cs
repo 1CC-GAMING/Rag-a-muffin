@@ -65,6 +65,8 @@ public class Rag : MonoBehaviour
     public bool isGrappling;
     public bool canPush = false;
     private Vector3 currentPos;
+    public AudioSource jump;
+
     // public GameObject[] test;
     /// <summary>
     /// Author: cody
@@ -78,6 +80,7 @@ public class Rag : MonoBehaviour
         PlayerPrefs.SetString("lastlevel", level);
         rb = gameObject.GetComponent<Rigidbody>();
         startPosition = transform.position;
+        jump = this.gameObject.GetComponent<AudioSource>();
         //pinHandle.SetActive(false);
     }
 
@@ -229,6 +232,7 @@ public class Rag : MonoBehaviour
             {
                 rb.AddForce(0, jumpForce, 0);
                 isGrounded = false;
+                jump.Play();
                 if (canPush)
                 {
                     child.transform.parent = null;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Roomba : MonoBehaviour
 {
     public Transform[] navPoints; // array of nav points
-    public int speed;
+    public float speed;
     public GameObject playerHolder = null;
 
     private int navPointIndex; // which nav point in the array it is currently seeking

@@ -18,6 +18,7 @@ public class Collectables : MonoBehaviour
     /// Author: cody
     /// Start is called before the first frame update
     /// </summary>
+    public AudioSource collect;
     [SerializeField]
     private Menu menu;
     private int savePictureData = 1;    // When OnTriggerEnter is called this will change playerprefs int to 1 which means
@@ -32,8 +33,13 @@ public class Collectables : MonoBehaviour
     {
         if (other.gameObject.tag == ("Player"))
         {
-            gameObject.SetActive(false);
+            collect.Play();
+            Invoke("Off", 0.5f);
             menu.SetSaveData(pictureItemsArryNum, savePictureData);
         }
+    }
+    public void Off()
+    {
+        gameObject.SetActive(false);
     }
 }

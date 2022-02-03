@@ -19,6 +19,7 @@ public class Collectables : MonoBehaviour
     /// Start is called before the first frame update
     /// </summary>
     public AudioSource collect;
+    public Collider col;
     [SerializeField]
     private Menu menu;
     private int savePictureData = 1;    // When OnTriggerEnter is called this will change playerprefs int to 1 which means
@@ -29,12 +30,19 @@ public class Collectables : MonoBehaviour
     private int pictureItemsArryNum;    //number neeeds to match in array in menu script. string[] picNames. 
                                         //If picture is collectable #1 then this number should be 0 in the inspector. 
 
+
+    private void Start()
+    {
+        col = this.gameObject.GetComponent<Collider>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == ("Player"))
         {
+            col.enabled = false;
             collect.Play();
-            Invoke("Off", 0.5f);
+            Invoke("Off", 0.5f);         
             menu.SetSaveData(pictureItemsArryNum, savePictureData);
         }
     }

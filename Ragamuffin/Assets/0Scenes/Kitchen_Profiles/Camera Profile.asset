@@ -65,10 +65,10 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 1
+    value: 0.48
   size:
     overrideState: 1
-    value: 1.47
+    value: 1.28
   lumContrib:
     overrideState: 1
     value: 0.8

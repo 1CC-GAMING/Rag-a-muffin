@@ -413,7 +413,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1697068575}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -516,7 +516,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1697068575}
         m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
         m_MethodName: SetSoundEffectsVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6733,7 +6733,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b14e8e57a765f43bed7a31ed77ce9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeMixer: {fileID: 0}
 --- !u!1 &2107446443
 GameObject:
   m_ObjectHideFlags: 0
